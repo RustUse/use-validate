@@ -1,0 +1,44 @@
+[package]
+name = "use-validate"
+description = "Composable facade crate for RustUse validation primitives"
+publish = true
+authors.workspace = true
+version.workspace = true
+edition.workspace = true
+homepage.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+readme = "README.md"
+documentation = "https://docs.rs/use-validate"
+keywords = ["validate", "check", "rule", "predicate", "constraint"]
+categories = ["data-structures", "rust-patterns"]
+
+[package.metadata.docs.rs]
+all-features = true
+
+[features]
+default = ["full"]
+check = ["dep:use-check"]
+rule = ["dep:use-rule"]
+range = ["dep:use-range"]
+bound = ["dep:use-bound"]
+constraint = ["dep:use-constraint"]
+predicate = ["dep:use-predicate"]
+full = ["check", "rule", "range", "bound", "constraint", "predicate"]
+
+[dependencies]
+use-bound = { version = "0.0.1", path = "../use-bound", optional = true }
+use-check = { version = "0.0.1", path = "../use-check", optional = true }
+use-constraint = { version = "0.0.1", path = "../use-constraint", optional = true }
+use-predicate = { version = "0.0.1", path = "../use-predicate", optional = true }
+use-range = { version = "0.0.1", path = "../use-range", optional = true }
+use-rule = { version = "0.0.1", path = "../use-rule", optional = true }
+
+[[example]]
+name = "facade_check_rule"
+path = "examples/facade_check_rule.rs"
+required-features = ["check", "rule"]
+
+[lints]
+workspace = true

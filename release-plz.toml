@@ -1,0 +1,69 @@
+[workspace]
+release = false
+release_always = false
+changelog_update = false
+pr_labels = ["release"]
+max_analyze_commits = 2000
+
+[[package]]
+name = "use-check"
+release = true
+version_group = "rustuse-validate"
+
+[[package]]
+name = "use-rule"
+release = true
+version_group = "rustuse-validate"
+
+[[package]]
+name = "use-range"
+release = true
+version_group = "rustuse-validate"
+
+[[package]]
+name = "use-bound"
+release = true
+version_group = "rustuse-validate"
+
+[[package]]
+name = "use-constraint"
+release = true
+version_group = "rustuse-validate"
+
+[[package]]
+name = "use-predicate"
+release = true
+version_group = "rustuse-validate"
+
+[[package]]
+name = "use-validate"
+release = true
+version_group = "rustuse-validate"
+changelog_update = true
+changelog_path = "./CHANGELOG.md"
+changelog_include = [
+  "use-check",
+  "use-rule",
+  "use-range",
+  "use-bound",
+  "use-constraint",
+  "use-predicate",
+]
+
+[changelog]
+header = """# Changelog
+
+## Unreleased
+"""
+protect_breaking_commits = true
+sort_commits = "oldest"
+commit_parsers = [
+  { message = "^feat(?:\\([^)]+\\))?!?: .+", group = "Added" },
+  { message = "^fix(?:\\([^)]+\\))?!?: .+", group = "Fixed" },
+  { message = "^security(?:\\([^)]+\\))?!?: .+", group = "Security" },
+  { message = "^(?:refactor|perf|change)(?:\\([^)]+\\))?!?: .+", group = "Changed" },
+  { message = "^docs(?:\\([^)]+\\))?!?: .+", group = "Documentation" },
+  { message = "^(?:build|ci|chore|deps|test)(?:\\([^)]+\\))?!?: .+", group = "Tooling" },
+  { footer = "^changelog: ?ignore$", skip = true },
+  { message = "^.*", group = "Changed" },
+]
