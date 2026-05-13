@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## [0.0.1](https://github.com/RustUse/use-validate/releases/tag/use-validate-v0.0.1) - 2026-05-13
+
+### Changed
+
+- Add workspace scaffolding, crates, and CI
+
 ### Added
 
 - Added the initial `use-validate` multi-crate workspace scaffold.
