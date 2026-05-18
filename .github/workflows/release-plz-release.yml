@@ -1,6 +1,6 @@
 name: Release Publish Automation
 
-on:
+"on":
     push:
         branches:
             - main
@@ -27,7 +27,7 @@ jobs:
         runs-on: ubuntu-latest
         env:
             PUBLISHED_CRATES: >-
-                use-check use-rule use-range use-bound use-constraint use-predicate use-validate
+              use-check use-rule use-range use-bound use-constraint use-predicate use-validate
         steps:
             - name: Check out repository
               uses: actions/checkout@v4
